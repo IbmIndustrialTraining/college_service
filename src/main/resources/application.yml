@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: college_service
+
+server:
+  port: 8003    
+  
+college:
+   univ: local
+   
+---
+spring:
+  profiles: dev
+  
+college:
+   univ: local_dev
+
+---   
+spring:
+  profiles: test
+  
+college:
+   univ: local_test
+
+---
+spring:
+  profiles: preprod
+  
+college:
+   univ: local_preprod
+---   
+spring:
+  profiles: prod
+  
+college:
+   univ: local_prod
+---
+spring:
+  profiles:
+    active: dev   
+   
+           
+     

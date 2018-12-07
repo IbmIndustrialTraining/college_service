@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.ibm</groupId>
 	<artifactId>college_service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>college_service</name>
 	<description>college service</description>
