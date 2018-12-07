@@ -5,11 +5,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ibm.college.config.CollegeProperties;
 import com.ibm.college.config.CustomPropetiesLoader;
 import com.ibm.college.controller.ICollegeController;
 import com.ibm.college.controller.model.CollegeModel;
@@ -18,6 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 
 
 @RestController
+@RefreshScope
 @Slf4j
 public class CollegeControllerImpl implements ICollegeController {
 
@@ -26,6 +29,8 @@ public class CollegeControllerImpl implements ICollegeController {
 	@Autowired
 	CustomPropetiesLoader propLoader;
 	
+	@Autowired
+	CollegeProperties collPrps;
 	
 	@Value("${college.univ}")
 	private String univ;
@@ -34,7 +39,8 @@ public class CollegeControllerImpl implements ICollegeController {
     
 	CollegeControllerImpl()
 	{
-		log.info("college univ is:"+univ);
+		
+		
 		for(int i  =0;i<3;i++)
 		{
 			CollegeModel model = new CollegeModel();
@@ -48,6 +54,7 @@ public class CollegeControllerImpl implements ICollegeController {
 		String methodName = "getAllCollegesInfo()";
 		log.info(className+"->"+methodName);
 		log.info("college univ in method is::"+univ+":hod"+propLoader.getHod());
+		log.info("college name is:"+collPrps.getName());
 		return ResponseEntity.status(HttpStatus.OK).body(modelList);
 	}
 

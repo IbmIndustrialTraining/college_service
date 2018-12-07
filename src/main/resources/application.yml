@@ -1,13 +1,13 @@
-spring:
-  application:
-    name: college_service
-
-server:
-  port: 8003    
-  
 college:
    univ: local
    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        
+           
 ---
 spring:
   profiles: dev
@@ -34,10 +34,6 @@ spring:
   
 college:
    univ: local_prod
----
-spring:
-  profiles:
-    active: dev   
-   
+
            
      

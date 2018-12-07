@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8002
+
+  application:
+    name: college_service
+  profiles:
+    active: dev
+server:
+  port: 8003    
+  
